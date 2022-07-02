@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.lyrix.MainFragment"
+        android:label="Tracks"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_lyricsFragment"
+            app:destination="@id/lyricsFragment" />
+        <argument
+            android:name="trackWrapper"
+            app:argType="com.example.lyrix.model.TrackWrapper" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/lyricsFragment"
+        android:name="com.example.lyrix.LyricsFragment"
+        android:label="Lyrics"
+        tools:layout="@layout/fragment_lyrics" >
+        <action
+            android:id="@+id/action_lyricsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <argument
+            android:name="trackData"
+            app:argType="com.example.lyrix.model.Track" />
+    </fragment>
+</navigation>
